@@ -1,17 +1,20 @@
 :root {
-  --ink: #10151c;
-  --ink-mid: #2a3340;
-  --ink-soft: #5a6573;
-  --paper: #eef1f5;
-  --paper-2: #e3e8ef;
-  --snow: #f7f9fc;
-  --accent: #d4782f;
-  --accent-soft: #e9a15a;
-  --accent-deep: #b35e1a;
-  --teal: #1f6f6a;
-  --line: rgba(16, 21, 28, 0.1);
-  --line-strong: rgba(16, 21, 28, 0.18);
-  --glow: rgba(212, 120, 47, 0.22);
+  /* Coolors: 264653 · 2a9d8f · e9c46a · f4a261 · e76f51 */
+  --ink: #264653;
+  --ink-mid: #3a5a68;
+  --ink-soft: #5c7a86;
+  --teal: #2a9d8f;
+  --sand: #e9c46a;
+  --accent: #f4a261;
+  --accent-soft: #e9c46a;
+  --accent-deep: #e76f51;
+  --coral: #e76f51;
+  --paper: #f6f1e8;
+  --paper-2: #ebe4d6;
+  --snow: #fbf8f2;
+  --line: rgba(38, 70, 83, 0.12);
+  --line-strong: rgba(38, 70, 83, 0.2);
+  --glow: rgba(244, 162, 97, 0.28);
   --font-display: 'Bricolage Grotesque', sans-serif;
   --font-body: 'IBM Plex Sans', sans-serif;
   --max: 1180px;
@@ -73,7 +76,7 @@ p {
 }
 
 ::selection {
-  background: rgba(212, 120, 47, 0.28);
+  background: rgba(42, 157, 143, 0.28);
   color: var(--ink);
 }
 
