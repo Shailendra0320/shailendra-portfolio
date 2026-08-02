@@ -17,18 +17,18 @@ const NAV = [
 ]
 
 const MARQUEE = [
-  'React',
-  'Spring Boot',
-  'Java',
-  'REST APIs',
-  'MySQL',
-  'Redis',
-  'MongoDB',
-  'Nginx',
-  'Swagger UI',
-  'JWT',
-  'Docker',
   'DSA',
+  'OOP',
+  'SDLC',
+  'Python',
+  'Microservices',
+  'Kafka',
+  'RBAC',
+  'Spring AI',
+  'Spring Boot',
+  'React',
+  'Postman',
+  'CI/CD',
 ]
 
 function App() {
