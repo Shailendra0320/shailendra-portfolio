@@ -1,16 +1,21 @@
 :root {
-  --ink: #10231c;
-  --ink-soft: #243830;
-  --mist: #e7f1ec;
-  --fog: #c5d8ce;
-  --paper: #f4f8f5;
-  --accent: #d9772f;
-  --accent-deep: #b85c18;
-  --line: rgba(16, 35, 28, 0.12);
-  --shadow: 0 24px 60px rgba(16, 35, 28, 0.18);
-  --font-display: 'Instrument Serif', Georgia, serif;
-  --font-body: 'Sora', sans-serif;
-  --max: 1120px;
+  --ink: #10151c;
+  --ink-mid: #2a3340;
+  --ink-soft: #5a6573;
+  --paper: #eef1f5;
+  --paper-2: #e3e8ef;
+  --snow: #f7f9fc;
+  --accent: #d4782f;
+  --accent-soft: #e9a15a;
+  --accent-deep: #b35e1a;
+  --teal: #1f6f6a;
+  --line: rgba(16, 21, 28, 0.1);
+  --line-strong: rgba(16, 21, 28, 0.18);
+  --glow: rgba(212, 120, 47, 0.22);
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --max: 1180px;
+  --nav-h: 4.5rem;
   color: var(--ink);
   background: var(--paper);
   font-family: var(--font-body);
@@ -33,10 +38,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(217, 119, 47, 0.12), transparent 55%),
-    radial-gradient(900px 500px at 95% 5%, rgba(37, 99, 80, 0.1), transparent 50%),
-    var(--paper);
+  background: var(--paper);
 }
 
 img {
@@ -68,6 +70,11 @@ h2,
 h3,
 p {
   margin: 0;
+}
+
+::selection {
+  background: rgba(212, 120, 47, 0.28);
+  color: var(--ink);
 }
 
 #root {
