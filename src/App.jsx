@@ -22,9 +22,11 @@ const MARQUEE = [
   'Java',
   'REST APIs',
   'MySQL',
+  'Redis',
   'MongoDB',
+  'Nginx',
+  'Swagger UI',
   'JWT',
-  'Microservices',
   'Docker',
   'DSA',
 ]

@@ -9,7 +9,7 @@ export const profile = {
   tagline:
     'Building full-stack apps with React and Spring Boot — clean APIs, solid data, and UIs that ship.',
   summary:
-    'B.Tech (IT) engineer who builds full-stack products with React on the frontend and Spring Boot backends. Hands-on with REST APIs, JWT auth, MySQL/MongoDB, and AI-assisted features. Strong problem-solving foundation from 750+ DSA problems.',
+    'B.Tech (IT) engineer who builds full-stack products with React on the frontend and Spring Boot backends. Hands-on with REST APIs, JWT auth, MySQL/MongoDB, Redis caching, Nginx, Swagger UI, and AI-assisted features. Strong problem-solving foundation from 750+ DSA problems.',
   links: {
     github: 'https://github.com/Shailendra0320',
     linkedin: 'https://www.linkedin.com/in/shailendra-vishwakarma-8337292a0/',
@@ -45,11 +45,11 @@ export const projects = [
     name: 'RankEngine',
     url: 'https://github.com/Shailendra0320/rankengine',
     period: '04/2026 – Present',
-    stack: ['Java', 'Spring Boot', 'Microservices', 'JWT', 'MySQL', 'React', 'Docker'],
+    stack: ['Java', 'Spring Boot', 'Microservices', 'JWT', 'MySQL', 'Redis', 'Nginx', 'Swagger UI', 'React', 'Docker'],
     highlights: [
       'Architected a 9-service Spring Boot microservices backend with Gateway and Eureka — 20+ REST endpoints secured via JWT.',
-      'Designed Fenwick Tree rank queries and an Elo-style rating engine with Spring Data JPA + MySQL.',
-      'Built a React frontend consuming APIs, with Gemini-powered performance summaries.',
+      'Designed Fenwick Tree rank queries and an Elo-style rating engine with Spring Data JPA + MySQL; used Redis for fast lookups.',
+      'Documented APIs with Swagger UI, served behind Nginx, and built a React frontend with Gemini-powered summaries.',
     ],
   },
   {
@@ -98,11 +98,11 @@ export const skillGroups = [
   },
   {
     title: 'Data & AI',
-    items: ['MySQL', 'MongoDB', 'Gemini API', 'Spring AI', 'NLP (basics)'],
+    items: ['MySQL', 'MongoDB', 'Redis', 'Gemini API', 'Spring AI', 'NLP (basics)'],
   },
   {
-    title: 'Tools',
-    items: ['Git', 'GitHub', 'Docker', 'Postman', 'Swagger', 'DSA'],
+    title: 'Tools & Infra',
+    items: ['Git', 'GitHub', 'Docker', 'Nginx', 'Swagger UI', 'Postman', 'DSA'],
   },
 ]
 
