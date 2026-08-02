@@ -1,20 +1,28 @@
 # Shailendra Vishwakarma — Portfolio
 
-Simple portfolio built with **Express** and static HTML / CSS / JS.
+React (JavaScript) portfolio. Hosted on **GitHub Pages** — anyone can open the link; no `npm` needed for visitors.
 
-## Run locally
+## Live link (share this)
+
+https://Shailendra0320.github.io/shailendra-portfolio/
+
+## Only for you (local edit)
 
 ```bash
-npm install
-npm start
+npm install   # once
+npm run dev   # local preview only
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
-
-## Deploy (GitHub Pages)
+To update the live site after changes:
 
 ```bash
 npm run deploy
 ```
 
-Live: https://Shailendra0320.github.io/shailendra-portfolio/
+## Stack
+
+- Frontend: React + Vite
+- Content focus: React + Spring Boot projects
+- Hosting: GitHub Pages (static build in `dist/`)
+
+No Express. No server required for the public link.
