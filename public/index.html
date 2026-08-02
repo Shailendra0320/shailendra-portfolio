@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Shailendra Vishwakarma — Software Engineer building with Node.js and Express."
+    />
+    <title>Shailendra Vishwakarma — Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="progress" id="progress" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="nav" id="nav">
+      <a class="nav__brand" href="#top">
+        <span class="nav__mark">SV</span>
+        <span class="nav__name">Shailendra</span>
+      </a>
+      <button class="nav__burger" id="burger" type="button" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+      <nav class="nav__links" id="menu">
+        <a href="#about" data-nav>About</a>
+        <a href="#projects" data-nav>Projects</a>
+        <a href="#skills" data-nav>Skills</a>
+        <a href="#education" data-nav>Education</a>
+        <a class="nav__cta" href="mailto:12654vishwakarmashailendra7@gmail.com">Hire me</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero__bg" aria-hidden="true">
+          <div class="hero__orb hero__orb--a"></div>
+          <div class="hero__orb hero__orb--b"></div>
+          <div class="hero__mesh"></div>
+        </div>
+
+        <div class="hero__portrait" aria-hidden="true">
+          <img src="./shailendra.jpg" alt="" class="hero__photo" />
+          <div class="hero__fade"></div>
+        </div>
+
+        <div class="hero__content">
+          <p class="hero__eyebrow"><span class="hero__pulse"></span> Available for roles</p>
+          <h1 class="hero__name">
+            <span>Shailendra</span>
+            <span class="hero__last">Vishwakarma</span>
+          </h1>
+          <p class="hero__tagline">
+            Building clean REST APIs and full-stack apps with
+            <strong>Node.js</strong> and <strong>Express</strong> — simple, solid, and ready to ship.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#projects">See my work <span aria-hidden="true">→</span></a>
+            <a class="btn btn--ghost" href="mailto:12654vishwakarmashailendra7@gmail.com">Email me</a>
+          </div>
+          <div class="hero__meta">
+            <span>Panna, Madhya Pradesh</span>
+            <span>B.Tech IT · 2026</span>
+            <span>750+ DSA</span>
+          </div>
+        </div>
+
+        <a class="hero__scroll" href="#about" aria-label="Scroll">
+          <span>Scroll</span><i></i>
+        </a>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>Node.js</span><em>·</em>
+          <span>Express</span><em>·</em>
+          <span>REST APIs</span><em>·</em>
+          <span>JavaScript</span><em>·</em>
+          <span>MongoDB</span><em>·</em>
+          <span>MySQL</span><em>·</em>
+          <span>JWT</span><em>·</em>
+          <span>React</span><em>·</em>
+          <span>Git</span><em>·</em>
+          <span>Node.js</span><em>·</em>
+          <span>Express</span><em>·</em>
+          <span>REST APIs</span><em>·</em>
+          <span>JavaScript</span><em>·</em>
+          <span>MongoDB</span><em>·</em>
+          <span>MySQL</span><em>·</em>
+          <span>JWT</span><em>·</em>
+          <span>React</span><em>·</em>
+          <span>Git</span><em>·</em>
+        </div>
+      </div>
+
+      <section class="section about" id="about">
+        <div class="wrap">
+          <div class="about__grid">
+            <div data-reveal>
+              <p class="label">About</p>
+              <h2 class="title">Backend-first engineer<br /><em>learning by shipping</em></h2>
+            </div>
+            <p class="about__text" data-reveal>
+              Recent B.Tech (IT) graduate who builds full-stack apps with JavaScript,
+              React, and Node.js / Express. Comfortable shipping REST APIs, SQL/NoSQL
+              data layers, and small AI-assisted features — and debugging until things
+              actually work. Strong problem-solving base from 750+ DSA problems.
+            </p>
+          </div>
+
+          <ul class="stats">
+            <li data-reveal>
+              <strong>750+</strong>
+              <span>DSA problems solved</span>
+            </li>
+            <li data-reveal>
+              <strong>20+</strong>
+              <span>REST endpoints built</span>
+            </li>
+            <li data-reveal>
+              <strong>5</strong>
+              <span>featured projects</span>
+            </li>
+            <li data-reveal>
+              <strong>1616</strong>
+              <span>CodeChef · 3★</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section projects" id="projects">
+        <div class="wrap">
+          <div class="head" data-reveal>
+            <p class="label">Projects</p>
+            <h2 class="title">Selected work</h2>
+            <p class="lead">
+              Express APIs, auth flows, and product UIs — focused on clear routes and reliable data.
+            </p>
+          </div>
+
+          <div class="project-list">
+            <article class="project" data-reveal>
+              <div class="project__rail">
+                <span class="project__num">01</span>
+                <span class="project__date">04/2026 – Present</span>
+              </div>
+              <div class="project__body">
+                <div class="project__top">
+                  <h3>
+                    <a href="https://github.com/Shailendra0320/rankengine" target="_blank" rel="noreferrer">
+                      RankEngine <span>↗</span>
+                    </a>
+                  </h3>
+                  <a class="project__link" href="https://github.com/Shailendra0320/rankengine" target="_blank" rel="noreferrer">Open repo</a>
+                </div>
+                <ul class="project__points">
+                  <li>Built a modular Node.js / Express backend with 20+ REST endpoints and JWT auth for ratings and leaderboards.</li>
+                  <li>Designed MySQL schemas and an Elo-style rating flow with fast rank lookups for live leaderboard views.</li>
+                  <li>Shipped a frontend that consumes the APIs and uses the Gemini API for short performance summaries.</li>
+                </ul>
+                <ul class="tags">
+                  <li>Node.js</li><li>Express</li><li>MySQL</li><li>JWT</li><li>React</li><li>Gemini API</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="project" data-reveal>
+              <div class="project__rail">
+                <span class="project__num">02</span>
+                <span class="project__date">03/2026 – Present</span>
+              </div>
+              <div class="project__body">
+                <div class="project__top">
+                  <h3>
+                    <a href="https://github.com/Shailendra0320/TrueLens" target="_blank" rel="noreferrer">
+                      TrueLens <span>↗</span>
+                    </a>
+                  </h3>
+                  <a class="project__link" href="https://github.com/Shailendra0320/TrueLens" target="_blank" rel="noreferrer">Open repo</a>
+                </div>
+                <ul class="project__points">
+                  <li>Created a fake-review analysis app with Express services for scraping, scoring, and analytics over product reviews.</li>
+                  <li>Applied NLP-style signals and reviewer behavior checks to flag suspicious patterns; stored results in MongoDB.</li>
+                  <li>Built a dashboard so users can see trust scores and review insights clearly.</li>
+                </ul>
+                <ul class="tags">
+                  <li>Node.js</li><li>Express</li><li>MongoDB</li><li>NLP</li><li>React</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="project" data-reveal>
+              <div class="project__rail">
+                <span class="project__num">03</span>
+                <span class="project__date">09/2025 – 04/2026</span>
+              </div>
+              <div class="project__body">
+                <div class="project__top">
+                  <h3>
+                    <a href="https://github.com/Shailendra0320/TripGenni" target="_blank" rel="noreferrer">
+                      Tripgenni <span>↗</span>
+                    </a>
+                  </h3>
+                  <a class="project__link" href="https://github.com/Shailendra0320/TripGenni" target="_blank" rel="noreferrer">Open repo</a>
+                </div>
+                <ul class="project__points">
+                  <li>Developed trip-planning REST APIs in Express with JWT-protected routes and MySQL-backed entities.</li>
+                  <li>Added personalized trip suggestions via the Gemini API so recommendations feel useful, not generic.</li>
+                  <li>Delivered a UI for browsing trips and managing bookings end to end.</li>
+                </ul>
+                <ul class="tags">
+                  <li>Node.js</li><li>Express</li><li>MySQL</li><li>JWT</li><li>Gemini API</li><li>React</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="project" data-reveal>
+              <div class="project__rail">
+                <span class="project__num">04</span>
+                <span class="project__date">11/2025 – Present</span>
+              </div>
+              <div class="project__body">
+                <div class="project__top">
+                  <h3>
+                    <a href="https://github.com/Shailendra0320/BouncerHub" target="_blank" rel="noreferrer">
+                      Bouncer Hub <span>↗</span>
+                    </a>
+                  </h3>
+                  <a class="project__link" href="https://github.com/Shailendra0320/BouncerHub" target="_blank" rel="noreferrer">Open repo</a>
+                </div>
+                <ul class="project__points">
+                  <li>Built booking APIs with Express — request validation, JWT auth, and role-based access.</li>
+                  <li>Modeled MySQL schemas for users, bookings, and roles with clear CRUD flows.</li>
+                  <li>Connected a responsive UI with availability checks and an AI booking assistant.</li>
+                </ul>
+                <ul class="tags">
+                  <li>Express</li><li>Node.js</li><li>JWT</li><li>MySQL</li><li>React</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section skills" id="skills">
+        <div class="wrap">
+          <div class="head" data-reveal>
+            <p class="label">Skills</p>
+            <h2 class="title">What I work with <em>daily</em></h2>
+          </div>
+          <div class="skills__grid">
+            <div class="skill" data-reveal>
+              <div class="skill__head"><h3>Core</h3><span>01</span></div>
+              <ul>
+                <li>JavaScript</li><li>Node.js</li><li>Express</li><li>REST APIs</li><li>JWT</li>
+              </ul>
+            </div>
+            <div class="skill" data-reveal>
+              <div class="skill__head"><h3>Data</h3><span>02</span></div>
+              <ul>
+                <li>MySQL</li><li>MongoDB</li><li>SQL queries</li><li>Schema design</li>
+              </ul>
+            </div>
+            <div class="skill" data-reveal>
+              <div class="skill__head"><h3>Frontend</h3><span>03</span></div>
+              <ul>
+                <li>HTML</li><li>CSS</li><li>React</li><li>Vite</li>
+              </ul>
+            </div>
+            <div class="skill" data-reveal>
+              <div class="skill__head"><h3>Tools</h3><span>04</span></div>
+              <ul>
+                <li>Git</li><li>GitHub</li><li>Postman</li><li>Docker (basics)</li><li>DSA</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section education" id="education">
+        <div class="wrap education__grid">
+          <div data-reveal>
+            <p class="label">Education</p>
+            <h2 class="title">Background</h2>
+            <ul class="edu">
+              <li>
+                <div>
+                  <h3>Oriental Institute of Science &amp; Technology</h3>
+                  <p>B.Tech — Information Technology · CGPA 7.42</p>
+                </div>
+                <span>2022 – 2026</span>
+              </li>
+              <li>
+                <div>
+                  <h3>Gurukul Public H.S. School, Panna</h3>
+                  <p>Class 12th · 87%</p>
+                </div>
+                <span>2021</span>
+              </li>
+              <li>
+                <div>
+                  <h3>Maharishi Vidya Mandir, Panna</h3>
+                  <p>Class 10th · 84%</p>
+                </div>
+                <span>2019</span>
+              </li>
+            </ul>
+          </div>
+          <div data-reveal>
+            <p class="label">Achievements</p>
+            <h2 class="title">Highlights</h2>
+            <ul class="achieve">
+              <li>
+                <strong>Java Full Stack Development</strong>
+                <span>Certified — CodeforSuccess</span>
+              </li>
+              <li>
+                <a href="https://leetcode.com/u/Shailu03/" target="_blank" rel="noreferrer">
+                  <strong>750+ DSA problems</strong>
+                  <span>LeetCode &amp; similar platforms</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.codechef.com/users/shailu03" target="_blank" rel="noreferrer">
+                  <strong>CodeChef 1616 (3★)</strong>
+                  <span>Competitive programming</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://codeforces.com/profile/Shailu_03" target="_blank" rel="noreferrer">
+                  <strong>Codeforces 1256 (Pupil)</strong>
+                  <span>Competitive programming</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div class="wrap contact__panel" data-reveal>
+          <div>
+            <p class="label">Contact</p>
+            <h2 class="contact__title">Let’s build something <em>worth shipping</em></h2>
+            <p class="lead">
+              Open to software roles where I can grow with Node.js, Express, and full-stack product work.
+            </p>
+          </div>
+          <div class="contact__actions">
+            <a class="btn btn--primary btn--wide" href="mailto:12654vishwakarmashailendra7@gmail.com">
+              12654vishwakarmashailendra7@gmail.com
+            </a>
+            <a class="btn btn--ghost btn--wide" href="tel:+917987820587">+91-7987820587</a>
+            <ul class="social">
+              <li><a href="https://github.com/Shailendra0320" target="_blank" rel="noreferrer">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/shailendra-vishwakarma-8337292a0/" target="_blank" rel="noreferrer">LinkedIn</a></li>
+              <li><a href="https://leetcode.com/u/Shailu03/" target="_blank" rel="noreferrer">LeetCode</a></li>
+              <li><a href="https://www.codechef.com/users/shailu03" target="_blank" rel="noreferrer">CodeChef</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Shailendra Vishwakarma</p>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
