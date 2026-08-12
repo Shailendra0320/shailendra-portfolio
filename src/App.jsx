@@ -36,6 +36,9 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [progress, setProgress] = useState(0)
   const [active, setActive] = useState('')
+  const [contactModalOpen, setContactModalOpen] = useState(false)
+  const [emailCopiedStatus, setEmailCopiedStatus] = useState(false)
+  const [phoneCopiedStatus, setPhoneCopiedStatus] = useState(false)
   const [toast, setToast] = useState({ show: false, message: '', text: '', type: 'email' })
   const pageRef = useRef(null)
   const toastTimerRef = useRef(null)
@@ -52,11 +55,11 @@ function App() {
   }, [])
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    document.body.style.overflow = (menuOpen || contactModalOpen) ? 'hidden' : ''
     return () => {
       document.body.style.overflow = ''
     }
-  }, [menuOpen])
+  }, [menuOpen, contactModalOpen])
 
   useEffect(() => {
     const els = NAV.map((n) => document.getElementById(n.id)).filter(Boolean)
@@ -126,19 +129,17 @@ function App() {
     }, 8000)
   }
 
-  const handleEmailClick = (e) => {
+  const handleOpenContactModal = (e) => {
+    if (e && e.preventDefault) e.preventDefault()
+    closeMenu()
     copyToClipboard(profile.email)
+    setEmailCopiedStatus(true)
+    setContactModalOpen(true)
     showToast('Email address copied to clipboard!', profile.email, 'email')
     
     setTimeout(() => {
-      window.location.href = `mailto:${profile.email}`
-    }, 150)
-  }
-
-  const handleHireClick = (e) => {
-    closeMenu()
-    copyToClipboard(profile.email)
-    showToast('Email copied! Opening contact section...', profile.email, 'email')
+      setEmailCopiedStatus(false)
+    }, 3000)
 
     const contactEl = document.getElementById('contact')
     if (contactEl) {
@@ -146,9 +147,18 @@ function App() {
     }
   }
 
-  const handlePhoneClick = (e) => {
+  const handleCopyEmailInModal = () => {
+    copyToClipboard(profile.email)
+    setEmailCopiedStatus(true)
+    showToast('Email address copied to clipboard!', profile.email, 'email')
+    setTimeout(() => setEmailCopiedStatus(false), 3000)
+  }
+
+  const handleCopyPhoneInModal = () => {
     copyToClipboard(profile.phone)
+    setPhoneCopiedStatus(true)
     showToast('Phone number copied to clipboard!', profile.phone, 'phone')
+    setTimeout(() => setPhoneCopiedStatus(false), 3000)
   }
 
   const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(profile.email)}`
@@ -184,13 +194,13 @@ function App() {
               {item.label}
             </a>
           ))}
-          <a
-            className="nav__cta"
-            href="#contact"
-            onClick={handleHireClick}
+          <button
+            type="button"
+            className="nav__cta nav__cta-btn"
+            onClick={handleOpenContactModal}
           >
             Hire me
-          </a>
+          </button>
         </nav>
       </header>
 
@@ -219,13 +229,13 @@ function App() {
               <a className="btn btn--primary" href="#projects">
                 See my work <span aria-hidden="true">→</span>
               </a>
-              <a
+              <button
+                type="button"
                 className="btn btn--ghost"
-                href="#contact"
-                onClick={handleEmailClick}
+                onClick={handleOpenContactModal}
               >
                 Email me
-              </a>
+              </button>
             </div>
             <div className="hero__meta">
               <span>{profile.location}</span>
@@ -407,20 +417,20 @@ function App() {
               </p>
             </div>
             <div className="contact__actions">
-              <a
+              <button
+                type="button"
                 className="btn btn--primary btn--wide"
-                href={`mailto:${profile.email}`}
-                onClick={handleEmailClick}
+                onClick={handleOpenContactModal}
               >
                 {profile.email}
-              </a>
-              <a
+              </button>
+              <button
+                type="button"
                 className="btn btn--ghost btn--wide"
-                href={`tel:${profile.phone}`}
-                onClick={handlePhoneClick}
+                onClick={handleCopyPhoneInModal}
               >
                 {profile.phone}
-              </a>
+              </button>
               <ul className="social">
                 <li>
                   <a href={profile.links.github} target="_blank" rel="noreferrer">
@@ -454,6 +464,69 @@ function App() {
         </p>
         <a href="#top">Back to top ↑</a>
       </footer>
+
+      {contactModalOpen && (
+        <div
+          className="modal-overlay"
+          onClick={() => setContactModalOpen(false)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="modal-card" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-card__header">
+              <div>
+                <p className="label">Contact Shailendra</p>
+                <h3 className="modal-card__title">Get in Touch</h3>
+              </div>
+              <button
+                type="button"
+                className="modal-card__close"
+                onClick={() => setContactModalOpen(false)}
+                aria-label="Close modal"
+              >
+                ✕
+              </button>
+            </div>
+            <p className="modal-card__lead">
+              Email address copied to clipboard! Choose an option below to reach out:
+            </p>
+
+            <div className="modal-card__buttons">
+              <a
+                className="modal-btn modal-btn--primary"
+                href={gmailWebUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>✉️ Compose in Gmail Web ↗</span>
+              </a>
+
+              <button
+                type="button"
+                className="modal-btn modal-btn--secondary"
+                onClick={handleCopyEmailInModal}
+              >
+                <span>{emailCopiedStatus ? '✓ Email Copied!' : `📋 Copy Email (${profile.email})`}</span>
+              </button>
+
+              <button
+                type="button"
+                className="modal-btn modal-btn--secondary"
+                onClick={handleCopyPhoneInModal}
+              >
+                <span>{phoneCopiedStatus ? '✓ Phone Copied!' : `📞 Call / Copy Phone (${profile.phone})`}</span>
+              </button>
+
+              <a
+                className="modal-btn modal-btn--ghost"
+                href={`mailto:${profile.email}`}
+              >
+                <span>📬 Open Default Mail App</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
       {toast.show && (
         <div className="toast-container" role="alert">
@@ -496,11 +569,6 @@ function App() {
               >
                 Copy Again
               </button>
-              {toast.type === 'email' && (
-                <a className="toast__btn" href={`mailto:${profile.email}`}>
-                  Mail App
-                </a>
-              )}
             </div>
           </div>
         </div>
@@ -510,4 +578,5 @@ function App() {
 }
 
 export default App
+
 
