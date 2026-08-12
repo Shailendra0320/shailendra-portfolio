@@ -36,7 +36,9 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [progress, setProgress] = useState(0)
   const [active, setActive] = useState('')
+  const [toast, setToast] = useState({ show: false, message: '', text: '', type: 'email' })
   const pageRef = useRef(null)
+  const toastTimerRef = useRef(null)
 
   useEffect(() => {
     const onScroll = () => {
@@ -92,6 +94,65 @@ function App() {
 
   const closeMenu = () => setMenuOpen(false)
 
+  const copyToClipboard = (text) => {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).catch(() => {
+        fallbackCopy(text)
+      })
+    } else {
+      fallbackCopy(text)
+    }
+  }
+
+  const fallbackCopy = (text) => {
+    const el = document.createElement('textarea')
+    el.value = text
+    el.setAttribute('readonly', '')
+    el.style.position = 'absolute'
+    el.style.left = '-9999px'
+    document.body.appendChild(el)
+    el.select()
+    try {
+      document.execCommand('copy')
+    } catch (e) {}
+    document.body.removeChild(el)
+  }
+
+  const showToast = (message, text, type = 'email') => {
+    if (toastTimerRef.current) clearTimeout(toastTimerRef.current)
+    setToast({ show: true, message, text, type })
+    toastTimerRef.current = setTimeout(() => {
+      setToast({ show: false, message: '', text: '', type: 'email' })
+    }, 8000)
+  }
+
+  const handleEmailClick = (e) => {
+    copyToClipboard(profile.email)
+    showToast('Email address copied to clipboard!', profile.email, 'email')
+    
+    setTimeout(() => {
+      window.location.href = `mailto:${profile.email}`
+    }, 150)
+  }
+
+  const handleHireClick = (e) => {
+    closeMenu()
+    copyToClipboard(profile.email)
+    showToast('Email copied! Opening contact section...', profile.email, 'email')
+
+    const contactEl = document.getElementById('contact')
+    if (contactEl) {
+      contactEl.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  const handlePhoneClick = (e) => {
+    copyToClipboard(profile.phone)
+    showToast('Phone number copied to clipboard!', profile.phone, 'phone')
+  }
+
+  const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(profile.email)}`
+
   return (
     <div className="page" ref={pageRef}>
       <div className="progress" style={{ width: `${progress}%` }} aria-hidden="true" />
@@ -123,7 +184,11 @@ function App() {
               {item.label}
             </a>
           ))}
-          <a className="nav__cta" href={`mailto:${profile.email}`} onClick={closeMenu}>
+          <a
+            className="nav__cta"
+            href="#contact"
+            onClick={handleHireClick}
+          >
             Hire me
           </a>
         </nav>
@@ -154,7 +219,11 @@ function App() {
               <a className="btn btn--primary" href="#projects">
                 See my work <span aria-hidden="true">→</span>
               </a>
-              <a className="btn btn--ghost" href={`mailto:${profile.email}`}>
+              <a
+                className="btn btn--ghost"
+                href="#contact"
+                onClick={handleEmailClick}
+              >
                 Email me
               </a>
             </div>
@@ -338,10 +407,18 @@ function App() {
               </p>
             </div>
             <div className="contact__actions">
-              <a className="btn btn--primary btn--wide" href={`mailto:${profile.email}`}>
+              <a
+                className="btn btn--primary btn--wide"
+                href={`mailto:${profile.email}`}
+                onClick={handleEmailClick}
+              >
                 {profile.email}
               </a>
-              <a className="btn btn--ghost btn--wide" href={`tel:${profile.phone}`}>
+              <a
+                className="btn btn--ghost btn--wide"
+                href={`tel:${profile.phone}`}
+                onClick={handlePhoneClick}
+              >
                 {profile.phone}
               </a>
               <ul className="social">
@@ -377,8 +454,60 @@ function App() {
         </p>
         <a href="#top">Back to top ↑</a>
       </footer>
+
+      {toast.show && (
+        <div className="toast-container" role="alert">
+          <div className="toast">
+            <div className="toast__header">
+              <div className="toast__title">
+                <span className="toast__check">✓</span>
+                <span>{toast.message}</span>
+              </div>
+              <button
+                type="button"
+                className="toast__close"
+                aria-label="Close notification"
+                onClick={() => setToast({ show: false, message: '', text: '', type: 'email' })}
+              >
+                ✕
+              </button>
+            </div>
+            <div className="toast__body">
+              <strong>{toast.text}</strong>
+            </div>
+            <div className="toast__actions">
+              {toast.type === 'email' && (
+                <a
+                  className="toast__btn toast__btn--primary"
+                  href={gmailWebUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Open in Gmail Web ↗
+                </a>
+              )}
+              <button
+                type="button"
+                className="toast__btn"
+                onClick={() => {
+                  copyToClipboard(toast.text)
+                  showToast('Copied again to clipboard!', toast.text, toast.type)
+                }}
+              >
+                Copy Again
+              </button>
+              {toast.type === 'email' && (
+                <a className="toast__btn" href={`mailto:${profile.email}`}>
+                  Mail App
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
 
 export default App
+

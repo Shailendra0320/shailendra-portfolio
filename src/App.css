@@ -948,3 +948,129 @@
     transform: none;
   }
 }
+
+/* Toast Notification System */
+.toast-container {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: min(32rem, calc(100% - 2rem));
+  animation: toastSlideUp 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.toast {
+  background: #0b1a20;
+  color: var(--mist);
+  border: 1px solid var(--teal);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 24px rgba(42, 157, 143, 0.25);
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.toast__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.toast__title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--sand);
+}
+
+.toast__check {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.toast__close {
+  background: transparent;
+  border: none;
+  color: rgba(204, 208, 207, 0.6);
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.toast__close:hover {
+  color: #fff;
+}
+
+.toast__body {
+  font-size: 0.9rem;
+  color: rgba(204, 208, 207, 0.92);
+  word-break: break-all;
+  font-family: var(--font-body);
+}
+
+.toast__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.toast__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid rgba(204, 208, 207, 0.2);
+  background: rgba(204, 208, 207, 0.08);
+  color: var(--mist);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toast__btn:hover {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #fff;
+}
+
+.toast__btn--primary {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--navy-0);
+}
+
+.toast__btn--primary:hover {
+  background: var(--coral);
+  border-color: var(--coral);
+  color: #fff;
+}
+
+@keyframes toastSlideUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+

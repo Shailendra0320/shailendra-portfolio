@@ -2,6 +2,10 @@
 
 React (JavaScript) portfolio. Hosted on **GitHub Pages** — anyone can open the link; no `npm` needed for visitors.
 
+Last updated: August 2026
+
+Last updated: August 2026
+
 ## Live link (share this)
 
 https://Shailendra0320.github.io/shailendra-portfolio/
